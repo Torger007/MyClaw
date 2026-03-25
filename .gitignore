@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Environment and local config
+.env
+.env.*
+!.env.example
+dev.yaml
+
+# Runtime state and logs
+*.log
+logs/
+.myclaw/
+
+# Editor / IDE
+.vs/
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

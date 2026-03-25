@@ -1,0 +1,27 @@
+providers:
+  # Anthropic（Claude 系列）
+  - id: claude
+    type: anthropic
+    apiKeyEnv: ANTHROPIC_API_KEY
+    model: claude-sonnet-4-6
+    maxTokens: 4096
+
+  # OpenAI（GPT 系列）
+  - id: gpt
+    type: openai
+    apiKeyEnv: OPENAI_API_KEY
+    model: gpt-4o
+    temperature: 0.5
+
+  # OpenRouter（聚合平台，可使用各种免费/付费模型）
+  - id: free-model
+    type: openrouter
+    apiKeyEnv: OPENROUTER_API_KEY
+    baseUrl: https://openrouter.ai/api/v1
+    model: stepfun/step-3.5-flash:free
+
+routing:
+  - channel: feishu        # 飞书消息 → 使用 GPT
+    agent: gpt
+  - channel: "*"           # 其他所有通道 → 使用默认 Provider
+    agent: default
